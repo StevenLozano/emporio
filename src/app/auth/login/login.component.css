@@ -1,0 +1,47 @@
+:host(.login) {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-image: url(/Login_4.png);
+    background-repeat: no-repeat;
+    background-position: 70% 25%;
+    background-color: #000;
+    display: block;
+}
+
+.color-overlay{
+    background: rgba(0, 0, 0, .5);
+}
+
+.color-overlay .main-wrapper {
+    box-sizing: border-box;
+    color: #fff;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    padding: 0 .625rem;
+    text-align: center;
+}
+
+.color-overlay .main-wrapper .login-content {
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin: auto;
+    max-width: 21.875rem;
+    padding: 1.25rem 2.5rem;
+    background-color: hsla(0, 0%, 100%, .4);
+}
+
+.color-overlay .main-wrapper .login-content .thin {
+    font-size: .75rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.logo {
+    display: inline-block;
+    padding: .625rem 0 0;
+    max-width: 15rem;
+}
