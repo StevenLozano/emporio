@@ -20,8 +20,7 @@
             "outputPath": "dist/emporio",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-            ],
+            "polyfills": [],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -77,8 +76,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-            ],
+            "polyfills": [],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               {

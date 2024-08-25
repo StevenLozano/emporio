@@ -1,10 +1,11 @@
 import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, TranslateModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   host: {
@@ -12,5 +13,4 @@ import { Component } from '@angular/core';
   }
 })
 export class LoginComponent {
-
 }
