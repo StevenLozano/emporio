@@ -1,5 +1,11 @@
 {
     "LOGIN": {
-        "TITLE": "Hola Mundo"
+        "INIT": "ENTRAR",
+        "PASSWORD": "Contraseña",
+        "TITLE": "INICIO DE SESION",
+        "USER": "Usuario"
+    },
+    "HEADER": {
+        "TITLE": "EMPORIO"
     }
 }

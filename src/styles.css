@@ -1,3 +1,29 @@
+html, body { 
+    height: 100%; 
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0; 
+    font-family: Quicksand, serif;
+}
+
+:root {
+    --mat-expansion-container-shape: 0px;
+    --mat-icon-color: #fff;
+    --mat-toolbar-container-background-color: #3f51b5;
+    --mat-toolbar-container-text-color: #fff;
+    --mdc-list-list-item-one-line-container-height: 40px;
+}
+
+.mdc-list-item__primary-text {
+    display: flex;
+    align-items: center; /* Centrar horizontalmente */
+}
+  
+.mdc-list-item__primary-text mat-icon {
+    margin-bottom: 4px; /* Espacio entre el icono y el texto */
+}
+  
+.mdc-list-item__primary-text .list-item {
+    display: block;
+}

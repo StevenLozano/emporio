@@ -1,0 +1,16 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+.title {
+    cursor: pointer;
+}
+
+.welcome-text {
+    font-size: smaller;
+}
+
+.mat-toolbar {
+    text-align: center;
+    padding: 10px 0;
+}

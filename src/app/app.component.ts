@@ -18,6 +18,6 @@ export class AppComponent {
 
   constructor() {
     this.translate.setDefaultLang('es');
-    this.translate.use('es'); // Puedes cambiarlo por el idioma que prefieras
+    this.translate.use('es');
   }
 }

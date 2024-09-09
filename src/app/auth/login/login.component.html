@@ -1,3 +1,4 @@
+@let errorView = errors$;
 <div class="color-overlay">
     <div class="main-wrapper">
         <div class="logo">
@@ -10,9 +11,30 @@
             priority
             ngOptimizedImage/>
         </div>
-        <div class="login-content">
-          <h4 class="thin">{{ "LOGIN.TITLE" | translate }}</h4>
-          
-        </div>
+        <mat-card class="login-card">
+          <mat-card-title>{{ "LOGIN.TITLE" | translate }}</mat-card-title>
+          <mat-card-content class="login-content">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <p>
+                <mat-form-field class="login-field">
+                  <mat-label>{{ "LOGIN.USER" | translate }}</mat-label>
+                  <input type="text" matInput placeholder="{{ 'LOGIN.USER' | translate }}" formControlName="username">
+                </mat-form-field>
+              </p>
+              <p>
+                <mat-form-field>
+                  <mat-label>{{ "LOGIN.PASSWORD" | translate }}</mat-label>
+                  <input type="password" matInput placeholder="Password" formControlName="password">
+                </mat-form-field>
+              </p>
+              <p class="error">
+                @if (errorView) { {{ errorView }} }
+              </p>
+              <div>
+                <button type="submit" mat-flat-button>{{ "LOGIN.INIT" | translate }}</button>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
     </div>
 </div>

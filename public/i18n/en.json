@@ -1,6 +1,12 @@
 {
     "LOGIN": {
-        "TITLE": "Hello World"
+        "INIT": "LOG IN",
+        "PASSWORD": "Password",
+        "TITLE": "LOGIN ON THE EMPORIO",
+        "USER": "Username"
+    },
+    "HEADER": {
+        "TITLE": "EMPORIO"
     }
 }
   
