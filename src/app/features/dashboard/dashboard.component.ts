@@ -1,20 +1,22 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { Menu } from '../../core/models/menu/menu.module';
+import { Menu, MenuItem } from '../../core/models/menu.model';
 import { MenuItemComponent } from './menu-item/menu-item.component';
 import { RouterOutlet } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { HeaderChildComponent } from './header/header-child/header-child.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [
     HeaderComponent,
+    HeaderChildComponent,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
@@ -29,37 +31,57 @@ import { TranslateModule } from '@ngx-translate/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent {
+
+  private translate = inject(TranslateService);
+
+  menu: Menu = [
+    {
+      id: 1,
+      title: this.translate.instant('DASHBOARD.HOME'),
+      icon: 'home',
+      link: '/home',
+      color: '#3f51b5',
+    },
+    {
+      id: 2,
+      title: this.translate.instant('DASHBOARD.PRODUCT'),
+      icon: 'business_center',
+      color: '#ff7f0e',
+      subMenu: [
+        {
+          id: 3,
+          title: this.translate.instant('DASHBOARD.PRODUCT_ADD'),
+          icon: 'add_circle_outline',
+          link: '/products',
+          color: '#3FBB10',
+        },
+        {
+          id: 4,
+          title: this.translate.instant('DASHBOARD.PRODUCT_UPD'),
+          icon: 'update',
+          color: '#D3B108',
+          link: '/sales',
+        },
+        {
+          id: 5,
+          title: this.translate.instant('DASHBOARD.PRODUCT_DEL'),
+          icon: 'delete',
+          color: '#CB1919',
+          link: '/productDel',
+        }
+      ],
+    },
+  ];
+  
+  menuActive: MenuItem = this.menu[0];
   opened = true;
 
   toggle(): void {
     this.opened = !this.opened;
+    this.menu.filter(item => item.id === 1);
   }
 
-  menu: Menu = [
-    {
-      title: 'Home',
-      icon: 'home',
-      link: '/home',
-      color: '#ff7f0e',
-    },
-    {
-      title: 'Statistics',
-      icon: 'bar_chart',
-      color: '#ff7f0e',
-      subMenu: [
-        {
-          title: 'Sales',
-          icon: 'money',
-          link: '/sales',
-          color: '#ff7f0e',
-        },
-        {
-          title: 'Customers',
-          icon: 'people',
-          color: '#ff7f0e',
-          link: '/customers',
-        },
-      ],
-    },
-  ];
+  filterMenu(menuActive: MenuItem){
+    this.menuActive = menuActive;
+  }
 }

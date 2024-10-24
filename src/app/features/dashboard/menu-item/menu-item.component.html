@@ -1,13 +1,13 @@
 @let menuList = menu();
 <mat-list>
-    @for ( item of menuList; track item.title ){
+    @for ( item of menuList; track item.id ){
         <ng-container>
         <!-- If the item doesn't have children show it as list item-->
         @if (item.subMenu === undefined || !item.subMenu){
                 <ng-container>
                     @if (item.title){
-                        <mat-list-item [routerLink]="item.link" routerLinkActive="active"
-                        [routerLinkActiveOptions]="{ exact: true }">
+                        <mat-list-item [routerLink]="item.link" routerLinkActive="active" (click)="updateHeader(item)"
+                        [routerLinkActiveOptions]="{ exact: true }"  [class]="{'not_padding': isPadding()}">
                             <mat-icon [style.color]="item.color" mat-list-icon>
                                 {{ item.icon }}
                             </mat-icon>
@@ -28,7 +28,7 @@
                         <span mat-line class="list-item">{{ item.title }}</span>
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <app-menu-item [menu]="item.subMenu"></app-menu-item>
+                <app-menu-item [menu]="item.subMenu" [isPadding]="true" (menuActive)="updateHeader($event)"></app-menu-item>
                 </mat-expansion-panel>
             </ng-container>
         }

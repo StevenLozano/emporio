@@ -1,11 +1,9 @@
 export interface MenuItem {
+  id: number;
   title?: string;
   icon?: string;
   link?: string;
   color?: string;
-
-  hideFor?: string;
-
   expanded?: boolean;
   subMenu?: MenuItem[];
 }

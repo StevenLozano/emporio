@@ -7,6 +7,16 @@
     },
     "HEADER": {
         "TITLE": "EMPORIO"
+    },
+    "DASHBOARD": {
+        "HOME": "Home",
+        "PRODUCT": "Product Management",
+        "PRODUCT_ADD": "Add Product",
+        "PRODUCT_DEL": "Delete Product",
+        "PRODUCT_UPD": "Update Product"
+    },
+    "HOME": {
+        "DESCRIPTION": "Welcome to EMPORIO, theses are the latest news: "
     }
 }
   

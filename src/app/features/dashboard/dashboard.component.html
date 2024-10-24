@@ -3,10 +3,12 @@
 
     <mat-drawer-container>
       <mat-drawer mode="side" [opened]="opened">
-        <app-menu-item [menu]="menu"></app-menu-item>
+        <app-menu-item [menu]="menu" (menuActive)="filterMenu($event)"></app-menu-item>
       </mat-drawer>
 
       <mat-drawer-content [class.margin-left]="opened">
+        <app-header-child [header]="menuActive">
+        </app-header-child>
         <router-outlet></router-outlet>
       </mat-drawer-content>
     </mat-drawer-container>

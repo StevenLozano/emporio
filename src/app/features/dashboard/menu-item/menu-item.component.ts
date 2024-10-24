@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { Menu } from '../../../core/models/menu/menu.module';
+import { Menu, MenuItem } from '../../../core/models/menu.model';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -22,5 +22,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class MenuItemComponent {
 
   menu = input<Menu>();
+  menuActive = output<MenuItem>();
+  isPadding = input<Boolean>(false);
+
+  updateHeader ( menu: MenuItem ) {
+    this.menuActive.emit(menu);
+  }
 
 }

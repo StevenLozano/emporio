@@ -8,6 +8,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
+import { UserResponse } from '../../core/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -50,14 +51,13 @@ export class LoginComponent {
 
   onSubmit(): void {
     this.authService.login(this.form.get("username")?.value, this.form.get("password")?.value).subscribe({
-      next: (response) => {
+      next: ( response: UserResponse ) => {
         if (response.error && response.error != "" )
           this.errors$ = response["error"];
         else {
           console.log('Login successful', response);
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/home']);
         }
-        // Redirigir al usuario o manejar el éxito del login
       },
       error: (err) => {
         console.error('Login failed', err);

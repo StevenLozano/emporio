@@ -7,5 +7,15 @@
     },
     "HEADER": {
         "TITLE": "EMPORIO"
+    },
+    "DASHBOARD": {
+        "HOME": "Inicio",
+        "PRODUCT": "Gestión Producto",
+        "PRODUCT_ADD": "Agregar Producto",
+        "PRODUCT_DEL": "Eliminar Producto",
+        "PRODUCT_UPD": "Modificar Producto"
+    },
+    "HOME": {
+        "DESCRIPTION": "Bienvenido a EMPORIO, estas son las ultimas novedades: "
     }
 }

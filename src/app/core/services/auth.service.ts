@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
+import { User, UserResponse } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,20 +11,22 @@ export class AuthService {
   private router = inject(Router);
   private http = inject(HttpClient);
 
-  private apiUrl = 'https://api.example.com/login'; // URL de tu API de autenticación
+  private apiUrl = 'http://localhost:9898/api/auth/login'; // URL de tu API de autenticación
 
-  login(username: string, password: string): Observable<any> {
+  login(username: string, password: string): Observable<UserResponse> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const body = { username, password };
 
     if ( username === "admin" && password === "admin" ) {
-      const mockResponse = {
+      const mockResponse : UserResponse = {
         token: 'fake-jwt-token',
-        user: {
+        data: {
           id: 1,
-          username: 'user',
-          email: 'user@example.com'
-        }
+          username: 'Stallorz',
+          email: 'user@example.com',
+          active: true,
+        },
+        error: ''
       };
       if (mockResponse.token) {
         localStorage.setItem('authToken', mockResponse.token);
@@ -31,19 +34,10 @@ export class AuthService {
       return of(mockResponse);
     } else {
       // Simulamos una respuesta de error
-      return of({ error: 'Invalid credentials' });
+      return of({ data: {} as User, error: 'Invalid credentials' } as UserResponse);
     }
 
-    /*return this.http.post<any>(this.apiUrl, body, { headers })
-      .pipe(
-        map(response => {
-          // Guardar el token en el localStorage o sessionStorage
-          if (response.token) {
-            localStorage.setItem('authToken', response.token);
-          }
-          return response;
-        })
-      );*/
+    //return this.http.post<any>(this.apiUrl, body, { headers });
   }
 
   logout(): void {
